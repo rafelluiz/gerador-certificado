@@ -58,8 +58,8 @@ app.post('/', function(request, response){
   })()
 
 
-  response.send(result);
-  response.download(`${__dirname}/uploads/cert.html`)
+  //response.send(result);
+  response.download(`${__dirname}/my-fance-invoice.pdf`)
 });
 
 
