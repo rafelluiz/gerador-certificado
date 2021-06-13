@@ -14,7 +14,7 @@ app.post('/', function(request, response){
    // echo the result back
   Axios({
     method: "get",
-    url: request.body.file,
+    url: request.body.template,
     responseType: "stream"
   }).then(function (response) {
     response.data.pipe(fs.createWriteStream(`${__dirname}/uploads/cert.html`));
@@ -55,11 +55,12 @@ app.post('/', function(request, response){
 
     // close the browser
     await browser.close()
+    response.download(`${__dirname}/my-fance-invoice.pdf`)
   })()
 
 
   //response.send(result);
-  response.download(`${__dirname}/my-fance-invoice.pdf`)
+
 });
 
 
