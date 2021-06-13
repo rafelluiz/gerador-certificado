@@ -16,13 +16,13 @@ app.post('/', function(request, response){
     method: "get",
     url: request.body.template,
     responseType: "stream"
-  }).then(function (response) {
-    response.data.pipe(fs.createWriteStream(`${__dirname}/uploads/cert.html`));
+  }).then(function (response_axios) {
+    response_axios.data.pipe(fs.createWriteStream(`${__dirname}/uploads/cert.html`));
   });
   const source = fs.readFileSync(`${__dirname}/uploads/cert.html`, 'utf8')
   var template = Handlebars.compile(source);
 
-  var data = { "name": request.body.data.name};
+  var data = { "name": request.body.data.name, "template":request.body.template};
   var result = template(data);
 
   //fs.writeFile('cert_t.html','oi')
