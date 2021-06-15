@@ -3,6 +3,7 @@ const fs = require('fs');
 const Axios = require('axios')
 const Handlebars = require("handlebars");
 const puppeteer = require('puppeteer');
+let port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -65,4 +66,4 @@ app.post('/', function(request, response){
 
 });
 
-app.listen(57223);
+app.listen(port);
