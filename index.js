@@ -4,13 +4,14 @@ const Axios = require('axios')
 const Handlebars = require("handlebars");
 const puppeteer = require('puppeteer');
 let port = process.env.PORT || 3000;
-
+console.log(port)
 var app = express();
 
 app.use(express.json());
 
 app.post('/', function(request, response){
   console.log(request.body.data.name);      // your JSON
+  console.log(port)
   // echo the result back
   let name_file = request.body.data.name;
   let url = request.body.template
